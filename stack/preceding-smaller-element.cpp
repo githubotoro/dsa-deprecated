@@ -14,7 +14,7 @@ void stayTORO() {
 
 int traverse(stack <int> &s, const int &ele) {
 	// If stack is empty, return -1
-	// else if top of stack is greater than given element, return top
+	// else if top of stack is less than given element, return top
 	if (s.size() == 0) return -1;
 	else if (s.top() < ele) return s.top();
 	
