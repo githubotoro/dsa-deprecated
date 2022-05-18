@@ -7,9 +7,9 @@ void stayTORO() {
 	cin.tie(NULL);
 	cout.tie(NULL);
 	#ifndef ONLINE_JUDGE
-	    freopen("input.txt", "r", stdin);
-	    freopen("output.txt", "w", stdout);
-    #endif 
+		freopen("input.txt", "r", stdin);
+		freopen("output.txt", "w", stdout);
+	#endif 
 }
 
 struct node {
@@ -20,12 +20,12 @@ struct node {
 int traverse(stack <node> &s, const int &ele) {
 	// If stack is empty, return -1
 	// else if top of stack is greater than given element
-    // then, return the index stored in top of stack
+	// then, return the index stored in top of stack
 	if (s.size() == 0) return -1;
 	else if (s.top().value > ele) return s.top().index;
 	
 	// If base condition is false,
-    // pop from stack
+	// pop from stack
 	// and call traverse function again
 	s.pop();
 	traverse(s, ele);

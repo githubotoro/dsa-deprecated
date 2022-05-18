@@ -7,9 +7,9 @@ void stayTORO() {
 	cin.tie(NULL);
 	cout.tie(NULL);
 	#ifndef ONLINE_JUDGE
-	    freopen("input.txt", "r", stdin);
-	    freopen("output.txt", "w", stdout);
-    #endif 
+		freopen("input.txt", "r", stdin);
+		freopen("output.txt", "w", stdout);
+	#endif 
 }
 
 int traverse(stack <int> &s, const int &ele) {
