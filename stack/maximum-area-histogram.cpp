@@ -45,8 +45,7 @@ int main() {
 	int arr[n];
 	answer ans[n];
 
-	stack <node> stNext;
-    stack <node> stPreceding;
+	stack <node> stNext, stPreceding;
 
 	// Taking input array
 	for(int i=0; i<n; i++) cin>>arr[i];
@@ -85,10 +84,9 @@ int main() {
     int maximumArea = 0;
 
 	// Displaying maximum area
-	for(int i=0; i<n; i++)
-        maximumArea = max(maximumArea, arr[i] * (ans[i].nextSmaller - ans[i].precedingSmaller - 1));
+	for(int i=0; i<n; i++) maximumArea = max(maximumArea, arr[i] * (ans[i].nextSmaller - ans[i].precedingSmaller - 1));
     
-    cout<<maximumArea;
+	cout<<maximumArea;
 	
 	return 0;
 }
