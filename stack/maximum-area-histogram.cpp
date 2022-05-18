@@ -45,8 +45,6 @@ int main() {
 	int arr[n];
 	answer ans[n];
 
-    int areas[n];
-
 	stack <node> stNext;
     stack <node> stPreceding;
 
