@@ -22,7 +22,7 @@ void print(int n) {
 	if(n==0) return;
 
 	// Hypothesis
-    print(n-1);
+	print(n-1);
 
 	// Induction Step
 	cout<<n<<endl;

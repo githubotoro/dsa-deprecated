@@ -21,11 +21,11 @@ void print(int n) {
 	// Base Condition
 	if(n==0) return;
 
-    // Induction Step
-    cout<<n<<endl;
+	// Induction Step
+	cout<<n<<endl;
 
 	// Hypothesis
-    print(n-1);
+	print(n-1);
 }
 
 
