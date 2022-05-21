@@ -23,25 +23,25 @@ void stayTORO() {
 // then call insertEle(arr, ele) which will put ele at correct position
 // then I already know that lastEle will be placed at last, so I will put it at last
 void insertEle(vector <int> &arr, int ele) {
-    // Base Condition
-    if(arr.size() == 0) {
-        arr.push_back(ele);
-        return;
-    } else if(arr[arr.size()-1] <= ele) {
-        arr.insert(arr.end(), ele);
-        return;
-    } else if(arr[0] >= ele) {
-        arr.insert(arr.begin(), ele);
-        return;
-    }
+	// Base Condition
+	if(arr.size() == 0) {
+		arr.push_back(ele);
+		return;
+	} else if(arr[arr.size()-1] <= ele) {
+		arr.insert(arr.end(), ele);
+		return;
+	} else if(arr[0] >= ele) {
+		arr.insert(arr.begin(), ele);
+		return;
+	}
 
-    // Hypothesis
-    int lastEle = arr[arr.size()-1];
-    arr.pop_back();
-    insertEle(arr, ele);
+	// Hypothesis
+	int lastEle = arr[arr.size()-1];
+	arr.pop_back();
+	insertEle(arr, ele);
 
-    // Induction Step
-    arr.push_back(lastEle);
+	// Induction Step
+	arr.push_back(lastEle);
 }
 
 // Hypothesis:
@@ -52,12 +52,12 @@ void insertEle(vector <int> &arr, int ele) {
 // then I will put last element in correct place
 void sortArr(vector <int> &arr) {
 	// Base Condition
-    // If there is only 1 element in array, then it is already sorted
+	// If there is only 1 element in array, then it is already sorted
 	if(arr.size() == 1) return;
 
 	// Hypothesis
-    int ele = arr[ arr.size()-1 ];
-    arr.pop_back();
+	int ele = arr[ arr.size()-1 ];
+	arr.pop_back();
 	sortArr(arr);
 
 	// Induction Step
@@ -69,14 +69,14 @@ int main() {
 	stayTORO();
 
 	int n;
-    cin>>n;
+	cin>>n;
 
-    vector <int> arr(n);
-    for(auto &ele: arr) cin>>ele;
+	vector <int> arr(n);
+	for(auto &ele: arr) cin>>ele;
 
 	sortArr(arr);
 
-    for(auto ele: arr) cout<<ele<<" ";
+	for(auto ele: arr) cout<<ele<<" ";
 
 	return 0;
 }
