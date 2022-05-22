@@ -13,7 +13,7 @@ void stayTORO() {
 }
 
 // Hypothesis:
-// printSubsets(str) will print all subsets of string str
+// printSubsets will print all subsets of string str
 // Logic:
 // If string is empty, that means there is subset in sub
 // Else, we have to decide whether to include current element in subset or not
