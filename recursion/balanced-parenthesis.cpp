@@ -23,20 +23,20 @@ void stayTORO() {
 // If open < close, we have 2 choices, put either open or close bracket 
 // Note: We can only put a bracket, if required bracket is available in either open or close
 void printBalancedParenthesis(string ans, int open, int close) {
-    // Base Condition
-    if(open == 0 && close == 0) {
-        cout<<ans<<endl;
-        return;
-    }
+	// Base Condition
+	if(open == 0 && close == 0) {
+		cout<<ans<<endl;
+		return;
+	}
 
-    // Hypothesis and Induction
-    if(open >= close && open>0) {
-        printBalancedParenthesis(ans+"(", open-1, close);
-    } else {
-        if(open>0) printBalancedParenthesis(ans+"(", open-1, close);
-        
-        if(close>0) printBalancedParenthesis(ans+")", open, close-1);
-    }
+	// Hypothesis and Induction
+	if(open >= close && open>0) {
+		printBalancedParenthesis(ans+"(", open-1, close);
+	} else {
+		if(open>0) printBalancedParenthesis(ans+"(", open-1, close);
+		
+		if(close>0) printBalancedParenthesis(ans+")", open, close-1);
+	}
 }
 
 int main() {
