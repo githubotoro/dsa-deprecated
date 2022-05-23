@@ -13,7 +13,7 @@ void stayTORO() {
 }
 
 // Hypothesis: 
-// towerOfHanoi(src, des, aux) will move all disks from src to dest using aux
+// towerOfHanoi(src, des, aux, n) will move n disks from src to dest using aux
 // Logic:
 // First I will ask towerOfHanoi to move n-1 disks to aux
 // Then, I will place nth disk to dest
