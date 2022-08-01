@@ -63,16 +63,16 @@ void display(vector<vector<int>> &arr) {
 int main() {
 	stayTORO();
 
-    vector<vector<int>> arr;
-    arr = {
+	vector<vector<int>> arr;
+	arr = {
 		{1, 1, 2, 0},
 		{3, 4, 5, 2},
 		{1, 3, 1, 5}
 	};
 
-    setMatrixZeroes(arr);
+	setMatrixZeroes(arr);
 
-    display(arr);
+	display(arr);
 
 	return 0;
 }

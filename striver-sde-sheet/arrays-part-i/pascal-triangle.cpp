@@ -13,14 +13,14 @@ void stayTORO() {
 }
 
 void display(int n, vector<vector<int>> pascal) {
-    for(int i=0; i<n; i++) {
-        cout<<setw(n-i);
+	for(int i=0; i<n; i++) {
+		cout<<setw(n-i);
 
-        for(int j=0; j<=i; j++) {
-            cout<<pascal[i][j]<<" ";
-        }
-        cout<<"\n";
-    }
+		for(int j=0; j<=i; j++) {
+			cout<<pascal[i][j]<<" ";
+		}
+		cout<<"\n";
+	}
 }
 
 // NOTES:
@@ -39,24 +39,24 @@ void display(int n, vector<vector<int>> pascal) {
 // Then, we resize each row
 // Then, simple add previous row's previous & current indexes
 void pascalTriangle(int n) {
-    vector<vector<int>> pascal(n);
+	vector<vector<int>> pascal(n);
 
-    for(int row=0; row<n; row++) {
-        pascal[row].resize(row+1);
+	for(int row=0; row<n; row++) {
+		pascal[row].resize(row+1);
 
-        pascal[row][0] = pascal[row][row] = 1;
+		pascal[row][0] = pascal[row][row] = 1;
 
-        for(int col=1; col<row; col++)
-            pascal[row][col] = pascal[row-1][col-1] + pascal[row-1][col];
-    }
+		for(int col=1; col<row; col++)
+			pascal[row][col] = pascal[row-1][col-1] + pascal[row-1][col];
+	}
 
-    display(n, pascal);
+	display(n, pascal);
 }
 
 int main() {
 	stayTORO();
   
-    pascalTriangle(5);
+	pascalTriangle(5);
    
 	return 0;
 }
