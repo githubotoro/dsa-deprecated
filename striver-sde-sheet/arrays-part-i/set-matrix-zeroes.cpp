@@ -24,8 +24,6 @@ void setMatrixZeroes(vector<vector<int>> &arr) {
 	int cols = arr[0].size();
 	int col0 = -1;
 
-    
-
 	// first traversal
 	for(int row=0; row<rows; row++) {
 
