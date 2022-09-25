@@ -25,13 +25,13 @@ void stayTORO() {
 // Time Complexity: O(n)
 // Space Complexity: O(1)
 int stonks(const int arr[], const int n) {
-    int diff = 0;
-    int currMin = INT_MAX;
+	int diff = 0;
+	int currMin = INT_MAX;
 
 	for(int i=0; i<n; i++) {
-        currMin = min(currMin, arr[i]);
-        diff = max(diff, arr[i] - currMin);
-    }
+		currMin = min(currMin, arr[i]);
+		diff = max(diff, arr[i] - currMin);
+	}
 
 	return diff;
 }
@@ -40,13 +40,13 @@ int main() {
 	stayTORO();
   
 	int n;
-    cin>>n;
+	cin>>n;
 
-    int arr[n];
+	int arr[n];
 
-    for(int i=0; i<n; i++) cin>>arr[i];
+	for(int i=0; i<n; i++) cin>>arr[i];
 
-    cout<<stonks(arr, n);
+	cout<<stonks(arr, n);
    
 	return 0;
 }
