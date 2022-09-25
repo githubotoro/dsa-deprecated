@@ -58,7 +58,7 @@ int main() {
 
 		// If we get -1, means there is no smaller element on LHS
 		// since, we are already returning -1, there would be no adjustments here
-		// ans will be index of precedingSmalle
+		// ans will be index of precedingSmaller
 		ans[i].precedingSmaller =  precedingSmaller;
 
 		// If we get -1, means there is no smaller element on RHS
