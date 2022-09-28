@@ -25,6 +25,9 @@ void displayMatrix(const vector<vector<int>> &mat) {
 // 1. Find Transpose
 // 2. Reverse all the rows
 // Result: Matrix is rotated by 90 degree in clockwise direction
+
+// Time Complexity: O(n*n)
+// Space Complexity: O(1)
 void rotate(vector<vector<int>> &mat) {
 	for(int i=0; i<mat.size(); i++)
 		for(int j=0; j<i; j++)
