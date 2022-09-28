@@ -1,3 +1,9 @@
-		
-	for(int i=0; i<mat.size(); i++)
-		reverse(mat[i].begin(), mat[i].end());
+8
+// 1 3
+// 2 4
+// 2 6
+// 8 9
+// 8 10
+// 9 11
+// 15 18
+// 16 17
