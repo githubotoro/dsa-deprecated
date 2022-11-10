@@ -14,7 +14,7 @@ void stayTORO() {
 
 int knapsack(int wt[], int val[], int n, int W) {
 	// base condition
-	if(W==0 || n==0) return 0;
+	if(n==0 || W==0) return 0;
 
 	// hypothesis and induction
 	if(wt[n-1] <= W) {
