@@ -12,17 +12,17 @@ void stayTORO() {
 	#endif 
 }
 
-int knapsack(int wt[], int val[], int W, int n) {
+int knapsack(int wt[], int val[], int n, int W) {
 	// base condition
 	if(W==0 || n==0) return 0;
 
 	// hypothesis and induction
 	if(wt[n-1] <= W) {
 		// return maximum of (include, exclude)
-		return max(val[n-1] + knapsack(wt, val, W-wt[n-1], n-1), knapsack(wt, val, W, n-1));
+		return max(val[n-1] + knapsack(wt, val, n-1, W-wt[n-1]), knapsack(wt, val, n-1, W));
 	} else {
 		// we cannot include the element, so only one case - exclude
-		return knapsack(wt, val, W, n-1);
+		return knapsack(wt, val, n-1, W);
 	}
 }
 
@@ -31,10 +31,10 @@ int main() {
 
 	int wt[] = {60, 100, 120};
 	int val[] = {10, 20, 30};
-	int W = 500;
 	int n = sizeof(wt) / sizeof(wt[0]);
-
-	int maxProfit = knapsack(wt, val, W, n);
+	int W = 500;
+	
+	int maxProfit = knapsack(wt, val, n, W);
 	cout<<maxProfit;
 
 	return 0;
