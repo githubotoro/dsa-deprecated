@@ -14,7 +14,6 @@ void stayTORO() {
 
 bool subsetSum(int arr[], int n, int sum) {
 	int dp[n+1][sum+1];
-	memset(dp, -1, sizeof(dp));
 
 	for(int i=0; i<=n; i++) dp[i][0] = true;
 	for(int j=1; j<=sum; j++) dp[0][j] = false;
