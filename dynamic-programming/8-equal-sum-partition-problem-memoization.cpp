@@ -12,20 +12,27 @@ void stayTORO() {
 	#endif 
 }
 
-int dp[50][50][50];
+int dp[100][100];
 
-bool equalSumPartition(int arr[], int n, int sum1, int sum2) {
+bool subsetSum(int arr[], int n, int sum) {
 	// base condition
-	if(n == 0) {
-		if(sum1 == sum2) return true;
+	if(n==0) {
+		if(sum == 0) return true;
 		else return false;
 	}
+	
+	if(sum==0) {
+		return true;
+	}
 
-	if(dp[n][sum1][sum2] != -1) return dp[n][sum1][sum2];
+	if(dp[n][sum] != -1) return dp[n][sum];
 
 	// hypothesis and induction
-	return dp[n][sum1][sum2] = (equalSumPartition(arr, n-1, sum1+arr[n-1], sum2) ||
-			equalSumPartition(arr, n-1, sum1, sum2+arr[n-1]));
+	if(arr[n-1] <= sum) {
+		return dp[n][sum] = (subsetSum(arr, n-1, sum-arr[n-1]) || subsetSum(arr, n-1, sum));
+	} else {
+		return dp[n][sum] = subsetSum(arr, n-1, sum);
+	}
 }
 
 int main() {
@@ -33,13 +40,18 @@ int main() {
 
 	memset(dp, -1, sizeof(dp));
 
-	int arr[] = {1, 5, 23, 1, 20};
+	int arr[] = {1, 5, 11, 5};
 	int n = sizeof(arr) / sizeof(arr[0]);
-	int sum1 = 0;
-	int sum2 = 0;
+
+	int maxSum = 0;
+	for(int i=0; i<n; i++) maxSum+=arr[i];
 	
-	bool partitionPossible = equalSumPartition(arr, n, sum1, sum2);
-	cout<<partitionPossible;
+	if(maxSum%2 == 1) cout<<false;
+	else {
+		int sum = maxSum/2;
+		bool partitionPossible = subsetSum(arr, n, sum);
+		cout<<partitionPossible;
+	}
 
 	return 0;
 }
