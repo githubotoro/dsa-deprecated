@@ -14,9 +14,18 @@ void stayTORO() {
 
 int dp[100][100];
 
-int subsetSum(int arr[], int n, int sum) {
+bool subsetSum(int arr[], int n, int sum) {
 	// base condition
-    if(dp[n][sum] != -1) return dp[n][sum];
+	if(dp[n][sum] != -1) return dp[n][sum];
+
+	if(n==0) {
+		if(sum == 0) return true;
+		else return false;
+	}
+	
+	if(sum==0) {
+		return true;
+	}
 
 	// hypothesis and induction
 	if(arr[n-1] <= sum) {
@@ -29,7 +38,7 @@ int subsetSum(int arr[], int n, int sum) {
 int main() {
 	stayTORO();
 
-    memset(dp, -1, sizeof(dp));
+	memset(dp, -1, sizeof(dp));
 
 	int arr[] = {3, 34, 4, 12, 5, 2};
 	int n = sizeof(arr) / sizeof(arr[0]);
