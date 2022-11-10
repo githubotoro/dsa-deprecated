@@ -14,7 +14,6 @@ void stayTORO() {
 
 int knapsack(int wt[], int val[], int n, int W) {
 	int dp[n+1][W+1];
-	memset(dp, -1, sizeof(dp));
 
 	for(int i=0; i<=n; i++) dp[i][0]=0;
 	for(int j=0; j<=W; j++) dp[0][j]=0;
