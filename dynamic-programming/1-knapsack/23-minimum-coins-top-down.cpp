@@ -34,8 +34,8 @@ int minimumCoins(int coins[], int n, int sum) {
 int main() {
 	stayTORO();
 
-	int coins[] = {25, 15, 5};
-	int sum = 50;
+	int coins[] = {3, 4, 5, 8};
+	int sum = 32;
 	int n = sizeof(coins) / sizeof(coins[0]);
 	
 	int ways = minimumCoins(coins, n, sum);
