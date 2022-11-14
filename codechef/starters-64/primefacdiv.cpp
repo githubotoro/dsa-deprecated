@@ -56,12 +56,13 @@ int main() {
 	return 0;
 }
 
-// IN
+// == IN ==
 // 3
 // 21 63
 // 72 72
 // 25 20
-// OUT
+
+// == OUT ==
 // YES
 // YES
 // NO

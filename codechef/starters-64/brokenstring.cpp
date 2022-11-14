@@ -47,7 +47,7 @@ int main() {
 	return 0;
 }
 
-// IN
+// == IN ==
 // 4
 // 6
 // abcabc
@@ -57,7 +57,8 @@ int main() {
 // aaaa
 // 4
 // baab
-// OUT
+
+// == OUT ==
 // YES
 // NO
 // YES

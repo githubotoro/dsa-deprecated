@@ -29,7 +29,10 @@ int main() {
 
 		int flag = 1;
 		map<int, int> mp;
-		int limit = n + (n+1) / 2;
+
+		// C++ will automatically take floor beacuse of int typecasting,
+		// but still writing floor for better readability
+		int limit = floor(n + (n+1) / 2);
 		
 		for(int i=0; i<2*n; i++) {
 			cin>>arr[i];
@@ -45,7 +48,7 @@ int main() {
 	return 0;
 }
 
-// IN
+// == IN ==
 // 3
 // 2
 // 1 1 1 1
@@ -53,7 +56,8 @@ int main() {
 // 1 1 2 2 3 3
 // 2
 // 1 1 2 2
-// OUT
+
+// == OUT ==
 // NO
 // YES
 // YES
