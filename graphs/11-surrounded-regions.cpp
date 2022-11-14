@@ -45,6 +45,7 @@ public:
 				if(nrow>=0 && nrow<n && ncol>=0 && ncol<m &&
 				   adj[nrow][ncol]=='O' && !visited[nrow][ncol]) {
 					visited[nrow][ncol] = 1;
+					s.push({nrow, ncol});
 				}
 			}
 		}
