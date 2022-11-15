@@ -88,8 +88,8 @@ public:
 int main() {
 	stayTORO();
 
-	// n - number of nodes
-	// m - number of edges
+	// n - number of rows
+	// m - number of columns
 	int n, m;
 	cin>>n>>m;
 

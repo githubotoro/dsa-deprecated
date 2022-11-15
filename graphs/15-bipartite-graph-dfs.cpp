@@ -12,8 +12,8 @@ void stayTORO() {
 	#endif 
 }
 
-// BFS - Breadth First Search
-// Principle - FIFO (First In First Out)
+// DFS - Depth First Search
+// Principle - LIFO (Last In First Out)
 
 // Logic:
 // 1. Take a vector of all vertices which will store their correponding colors
@@ -26,13 +26,13 @@ void stayTORO() {
 
 class Solution {
 public:
-	bool doBfs(vector<vector<int>> &adj, vector<int> &colored, queue<int> &q) {
+	bool doDfs(vector<vector<int>> &adj, vector<int> &colored, stack<int> &s) {
 		int V = adj.size();
 
-		while(!q.empty()) {
-			int currNode = q.front();
+		while(!s.empty()) {
+			int currNode = s.top();
 			int currColor = colored[currNode];
-			q.pop();
+			s.pop();
 
 			int neighborColor;
 			if(currColor == 0) neighborColor = 1;
@@ -41,7 +41,9 @@ public:
 			for(auto neighbor : adj[currNode]) {
 				if(colored[neighbor] == -1) {
 					colored[neighbor] = neighborColor;
-					q.push(neighbor);
+					s.push(neighbor);
+                    bool ans = doDfs(adj, colored, s);
+                    if(ans == false) return false;
 				} else {
 					if(colored[neighbor] == currColor) return false;
 				}
@@ -62,13 +64,13 @@ public:
 		//    is enough to solve the problem.
 		vector<int> colored(V, -1);
 
-		queue<int> q;
+		stack<int> s;
 
 		for(int i=0; i<V; i++) {
 			if(colored[i] == -1) {
-				q.push(i);
+				s.push(i);
 				colored[i] = 0;
-				bool ans = doBfs(adj, colored, q);
+				bool ans = doDfs(adj, colored, s);
 				if(ans == false) return false;
 			}
 		}

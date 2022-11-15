@@ -12,8 +12,8 @@ void stayTORO() {
 	#endif 
 }
 
-// DFS - Depth First Search
-// Principle - LIFO (Last In First Out)
+// BFS - Breadth First Search
+// Principle - FIFO (First In First Out)
 
 // Logic:
 // 1.  Traverse all boundaries:
@@ -26,14 +26,14 @@ void stayTORO() {
 
 class Solution {
 public:
-	void doDfs(int n, int m, int sr, int sc, vector<vector<char>> &adj, vector<vector<int>> &visited) {
-		stack<pair<int, int>> s;
-		s.push({sr, sc});
+	void doBfs(int n, int m, int sr, int sc, vector<vector<char>> &adj, vector<vector<int>> &visited) {
+		queue<pair<int, int>> q;
+		q.push({sr, sc});
 
-		while(!s.empty()) {
-			int currRow = s.top().first;
-			int currCol = s.top().second;
-			s.pop();
+		while(!q.empty()) {
+			int currRow = q.front().first;
+			int currCol = q.front().second;
+			q.pop();
 
 			int delrow[4] = {-1, 1, 0, 0};
 			int delcol[4] = {0, 0, -1, 1};
@@ -45,7 +45,7 @@ public:
 				if(nrow>=0 && nrow<n && ncol>=0 && ncol<m &&
 				   adj[nrow][ncol]=='O' && !visited[nrow][ncol]) {
 					visited[nrow][ncol] = 1;
-					s.push({nrow, ncol});
+					q.push({nrow, ncol});
 				}
 			}
 		}
@@ -57,19 +57,19 @@ public:
 		// outer columns
 		for(int i=0; i<n; i++) {
 			// first column
-			if(adj[i][0]=='O' && !visited[i][0]) doDfs(n, m, i, 0, adj, visited);
+			if(adj[i][0]=='O' && !visited[i][0]) doBfs(n, m, i, 0, adj, visited);
 
 			// last column
-			if(adj[i][m-1]=='O' && !visited[i][m-1]) doDfs(n, m, i, m-1, adj, visited);
+			if(adj[i][m-1]=='O' && !visited[i][m-1]) doBfs(n, m, i, m-1, adj, visited);
 		}
 
 		// outer rows
 		for(int j=0; j<m; j++) {
 			// first row
-			if(adj[0][j]=='O' && !visited[0][j]) doDfs(n, m, 0, j, adj, visited);
+			if(adj[0][j]=='O' && !visited[0][j]) doBfs(n, m, 0, j, adj, visited);
 
 			// last row
-			if(adj[n-1][j]=='O' && !visited[n-1][j]) doDfs(n, m, n-1, j, adj, visited);
+			if(adj[n-1][j]=='O' && !visited[n-1][j]) doBfs(n, m, n-1, j, adj, visited);
 		}
 
 		// inner rows and columns
@@ -84,13 +84,13 @@ public:
 int main() {
 	stayTORO();
 
-	// n - number of nodes
-	// m - number of edges
+	// n - number of rows
+	// m - number of columns
 	int n, m;
 	cin>>n>>m;
 
 	// adjaceny matrix
-	vector<vector<char>> adj(n, vector<char> (m, 0));
+	vector<vector<char>> adj(n, vector<char> (m, 'a'));
 
 	for(int i=0; i<n; i++) {
 		for(int j=0; j<m; j++) {

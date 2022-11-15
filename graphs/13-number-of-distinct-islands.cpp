@@ -12,8 +12,8 @@ void stayTORO() {
 	#endif 
 }
 
-// DFS - Depth First Search
-// Principle - LIFO (Last In First Out)
+// BFS - Breadth First Search
+// Principle - FIFO (First In First Out)
 
 // Logic:
 // 1.  We will fo bfs/dfs traversal from all disjoint nodes
@@ -26,23 +26,23 @@ void stayTORO() {
 
 class Solution {
 public:
-	vector<pair<int, int>> doDfs(int sr, int sc, vector<vector<int>> &adj, vector<vector<int>> &visited) {
+	vector<pair<int, int>> doBfs(int sr, int sc, vector<vector<int>> &adj, vector<vector<int>> &visited) {
 		int n = adj.size();
 		int m = adj[0].size();
 
 		visited[sr][sc] = 1;
-		stack<pair<int, int>> s;
-		s.push({sr, sc});
+		queue<pair<int, int>> q;
+		q.push({sr, sc});
 
 		pair<int, int> base = {sr, sc};
 
-		vector<pair<int, int>> dfs;
-		dfs.push_back({sr - base.first, sc - base.second});
+		vector<pair<int, int>> bfs;
+		bfs.push_back({sr - base.first, sc - base.second});
 		
-		while(!s.empty()) {
-			int currRow = s.top().first;
-			int currCol = s.top().second;
-			s.pop();
+		while(!q.empty()) {
+			int currRow = q.front().first;
+			int currCol = q.front().second;
+			q.pop();
 
 			int delrow[4] = {-1, 1, 0, 0};
 			int delcol[4] = {0, 0, -1, 1};
@@ -54,13 +54,13 @@ public:
 				if(nrow>=0 && nrow<n && ncol>=0 && ncol<m &&
 				   adj[nrow][ncol]==1 && !visited[nrow][ncol]) {
 					visited[nrow][ncol] = 1;
-					dfs.push_back({nrow - base.first, ncol - base.second});
-					s.push({nrow, ncol});
+					bfs.push_back({nrow - base.first, ncol - base.second});
+					q.push({nrow, ncol});
 				}
 			}
 		}
 
-		return dfs;
+		return bfs;
 	}
 
 	int getDistinctIslands(vector<vector<int>> &adj) {
@@ -74,7 +74,7 @@ public:
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<m; j++) {
 				if(!visited[i][j] && adj[i][j]==1) {
-					vector<pair<int, int>> island = doDfs(i, j, adj, visited);
+					vector<pair<int, int>> island = doBfs(i, j, adj, visited);
 					mp[island] = 1;
 				}
 			}
@@ -87,8 +87,8 @@ public:
 int main() {
 	stayTORO();
 
-	// n - number of nodes
-	// m - number of edges
+	// n - number of rows
+	// m - number of columns
 	int n, m;
 	cin>>n>>m;
 
